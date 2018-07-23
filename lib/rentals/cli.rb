@@ -13,7 +13,7 @@ class Rentals::CLI
     url = "https://www.realtor.com/apartments/#{zip_code}"
       unparsed_page = HTTParty.get(url)
       parsed_page = Nokogiri::HTML(unparsed_page)
-      
+
       rental_listings = parsed_page.css('li.component_property-card.js-component_property-card')
       rental_listings.each do |rental_listing|
         listing = {
