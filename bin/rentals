@@ -2,4 +2,4 @@
 
 require './lib/rentals'
 
-Rentals::CLI.new.call
+Rentals::CLI.new.call #class called CLI that is instantiated using the call method, this starts the program

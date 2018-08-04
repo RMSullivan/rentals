@@ -1,7 +1,13 @@
 class Rentals::Rental
+  attr_accessor :address, :town, :number_of_bedrooms, :price, :url
+  
 
-  def self.all
-    puts " 1. Listing here"
+  def initialize(listing)
+
+
+  end
+
+  def self.clear
 
 
 
