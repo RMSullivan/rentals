@@ -18,7 +18,9 @@ class Rentals::CLI #class called CLI that is instantiated using the call method
     puts ""
     puts "Please enter a five digit zip code to search available rentals on Realtor.com:"
     zip_code = gets.strip
-    #create an if else to confirm input is a 5 digit number MAKE ARRAY!!!
+    unless zip_code.length == 5
+      puts "Invalid Entry, Please Try Again!"
+    else
     url = "https://www.realtor.com/apartments/#{zip_code}"
     puts ""
     puts "Searching https://www.realtor.com/apartments/#{zip_code} for rentals...."
@@ -30,22 +32,21 @@ class Rentals::CLI #class called CLI that is instantiated using the call method
 
     puts "******************** end of search *********************"
     puts ""
-
+    end
   end
   def prompt
     input = nil
     while input != "exit"
       puts ""
-      puts "Enter the listing address for additional details, type new to start a new search, or type exit to quit"
+      puts "Type new to start a new search, or type exit to quit"
       input = gets.strip.downcase
       case input
-      when "1"
-        puts "More details about address goes here"
       when "new"
         zip_code
+      when "exit" 
       else
         puts "Invalid Entry, Please Try Again!"
-        puts "Enter the listing number for more information, type new to start over, or exit to quit"
+        puts "Type new to start a new search, or type exit to quit"
 
       end
     end
