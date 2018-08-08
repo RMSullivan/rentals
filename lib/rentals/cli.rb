@@ -1,7 +1,4 @@
 #CLI controller
-require 'nokogiri'
-require 'httparty'
-require 'byebug'
 
 
 class Rentals::CLI #class called CLI that is instantiated using the call method
@@ -30,10 +27,24 @@ class Rentals::CLI #class called CLI that is instantiated using the call method
     puts "Here are the available listings for #{zip_code}"
     Rentals::Scraper.scrape(zip_code, url)
 
+    listings
+    Rentals::Rental.clear
+
     puts "******************** end of search *********************"
     puts ""
     end
   end
+
+  def listings
+    Rentals::Rental.all.each do |rental|
+      puts rental.address
+
+    end
+
+    #prints out address
+
+  end
+
   def prompt
     input = nil
     while input != "exit"
@@ -43,7 +54,7 @@ class Rentals::CLI #class called CLI that is instantiated using the call method
       case input
       when "new"
         zip_code
-      when "exit" 
+      when "exit"
       else
         puts "Invalid Entry, Please Try Again!"
         puts "Type new to start a new search, or type exit to quit"

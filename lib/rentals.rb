@@ -1,6 +1,11 @@
-module Rentals
+require 'nokogiri'
+require 'httparty'
+require 'byebug'
+require 'pry'
 
-end 
+module Rentals #namespacing defined as a module
+
+end
 
 require_relative "rentals/version"
 require_relative "rentals/scraper"
